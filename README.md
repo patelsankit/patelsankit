@@ -1,8 +1,7 @@
 - 👋 Hi, I’m @patelsankit
-- 👀 I’m interested in ...gaming
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+- 👀 I’m interested in ...web development   
+- 🌱 I’m currently learning .net development
+- 📫 my linkedin account=https://www.linkedin.com/in/parasiya-sankit-82970416a/
 
 <!---
 patelsankit/patelsankit is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
