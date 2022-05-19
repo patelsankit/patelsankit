@@ -1,6 +1,5 @@
 - 👋 Hi, I’m @patelsankit
-- 👀 I’m interested in ...web development   
-- 🌱 I’m currently learning .net development
+- 👀 I’m interested in web development   
 - 📫 my linkedin account=https://www.linkedin.com/in/parasiya-sankit-82970416a/
 
 <!---
