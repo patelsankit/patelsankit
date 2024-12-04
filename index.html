@@ -45,7 +45,9 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Orbitron&family=Fira+Code&family=Six+Caps" />
 
-<body class="body">
+<body class="body custom-cursor">
+  <div class="custom-cursor__cursor"></div>
+  <div class="custom-cursor__cursor-two"></div>
   <!-- <audio loop="" id="audioPlayer" style="display: none">
     <source src="src/mp3/preloader.mp3" type="audio/mp3" />
   </audio> -->
@@ -53,8 +55,6 @@
   <noscript>Allow Javascript</noscript>
 
   <header>
-    <div class="cursor-inner" id="cursor-inner"></div>
-    <div class="cursor-outer" id="cursor-outer"></div>
 
     <div class="navbar" id="navbar">
       <div class="hey">Hey!</div>
@@ -508,9 +508,11 @@
   </footer>
   <!-- footer ends here -->
 
-  <script src="main.js"></script>
+  <script src="./src/js/main.js"></script>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
+   <script src="./src/js/aos.js"></script>
+  <script src="./src/js/jquery-3.7.1.min.js"></script>
   <script>
     AOS.init();
   </script>
@@ -524,39 +526,46 @@
   </script>
 
   <script>
-    const cursorInner = document.getElementById("cursor-inner");
-    const cursorOuter = document.getElementById("cursor-outer");
-    const links = document.querySelectorAll("a,label,button");
+      // custom coursor
+      if ($(".custom-cursor").length) {
+        var cursor = document.querySelector(".custom-cursor__cursor");
+        var cursorinner = document.querySelector(".custom-cursor__cursor-two");
+        var a = document.querySelectorAll("a");
 
-    document.addEventListener("mousemove", function (e) {
-      const posX = e.clientX;
-      const posY = e.clientY;
-
-      cursorInner.style.left = `${posX}px`;
-      cursorInner.style.top = `${posY}px`;
-
-      // cursorOuter.style.left = `${posX}px`;
-      // cursorOuter.style.top = `${posY}px`;
-
-      cursorOuter.animate(
-        {
-          left: `${posX}px`,
-          top: `${posY}px`,
-        },
-        { duration: 500, fill: "forwards" }
-      );
-
-      links.forEach((link) => {
-        link.addEventListener("mouseenter", () => {
-          cursorInner.classList.add("hover");
-          cursorOuter.classList.add("hover");
+        document.addEventListener("mousemove", function (e) {
+          var x = e.clientX;
+          var y = e.clientY;
+          cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
         });
-        link.addEventListener("mouseleave", () => {
-          cursorInner.classList.remove("hover");
-          cursorOuter.classList.remove("hover");
+
+        document.addEventListener("mousemove", function (e) {
+          var x = e.clientX;
+          var y = e.clientY;
+          cursorinner.style.left = x + "px";
+          cursorinner.style.top = y + "px";
         });
-      });
-    });
+
+        document.addEventListener("mousedown", function () {
+          cursor.classList.add("click");
+          cursorinner.classList.add("custom-cursor__innerhover");
+        });
+
+        document.addEventListener("mouseup", function () {
+          cursor.classList.remove("click");
+          cursorinner.classList.remove("custom-cursor__innerhover");
+        });
+
+        a.forEach((item) => {
+          item.addEventListener("mouseover", () => {
+            cursor.classList.add("custom-cursor__hover");
+          });
+          item.addEventListener("mouseleave", () => {
+            cursor.classList.remove("custom-cursor__hover");
+          });
+        });
+      }
+
+
   </script>
 </body>
 
