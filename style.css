@@ -1006,6 +1006,7 @@ noscript {
 .dp::after,
 .dp::before {
   width: 300px;
+  max-height: 300px;
 }
 
 .projects-heading-article,
